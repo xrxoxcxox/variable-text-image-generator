@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import satori from 'satori'
 import { Card } from './Card'
 import { downloadSvgAsPng } from './svg-utils'
@@ -10,9 +11,14 @@ const notoSansJP = fetch('/NotoSansJP-Regular.otf').then((res) =>
 export default function App() {
   const width = 1920
   const height = 1080
+  const [cardText, setCardText] = useState('Lorem ipsum')
+
+  const handleChange = (e: { target: { value: string } }) => {
+    setCardText(() => e.target.value)
+  }
 
   const handleClick = async () => {
-    const svg = await satori(<Card />, {
+    const svg = await satori(<Card text={cardText} />, {
       width: width,
       height: height,
       fonts: [
@@ -34,8 +40,9 @@ export default function App() {
           height: height / 2,
         }}
       >
-        <Card preview={true} />
+        <Card preview={true} text={cardText} />
       </div>
+      <input type='text' onChange={handleChange} />
       <button onClick={handleClick}>Download</button>
     </>
   )

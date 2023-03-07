@@ -1,4 +1,10 @@
-export function Card({ preview = false }: { preview?: boolean }) {
+export function Card({
+  preview = false,
+  text,
+}: {
+  preview?: boolean
+  text?: string
+}) {
   return (
     <div
       style={{
@@ -11,7 +17,7 @@ export function Card({ preview = false }: { preview?: boolean }) {
         width: '100%',
       }}
     >
-      <div>Lorem ipsum</div>
+      <div>{text}</div>
     </div>
   )
 }
