@@ -10,10 +10,12 @@ export function Card({
       style={{
         alignItems: 'center',
         backgroundColor: '#f0f0f0',
+        backgroundImage: 'url(/background.png)',
+        backgroundSize: 'cover',
         display: 'flex',
         fontSize: preview ? 50 : 100,
         height: '100%',
-        justifyContent: 'center',
+        padding: preview ? '80px 48px' : '160px 96px',
         width: '100%',
       }}
     >
