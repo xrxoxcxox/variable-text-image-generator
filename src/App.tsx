@@ -11,14 +11,18 @@ const notoSansJP = fetch('/NotoSansJP-Regular.otf').then((res) =>
 export default function App() {
   const width = 1920
   const height = 1080
-  const [cardText, setCardText] = useState('Lorem ipsum')
+  const [role, setRole] = useState('Human')
+  const [name, setName] = useState('John Doe')
 
-  const handleChange = (e: { target: { value: string } }) => {
-    setCardText(() => e.target.value)
+  const handleChangeRole = (e: { target: { value: string } }) => {
+    setRole(() => e.target.value)
+  }
+  const handleChangeName = (e: { target: { value: string } }) => {
+    setName(() => e.target.value)
   }
 
   const handleClick = async () => {
-    const svg = await satori(<Card text={cardText} />, {
+    const svg = await satori(<Card role={role} name={name} />, {
       width: width,
       height: height,
       fonts: [
@@ -40,9 +44,16 @@ export default function App() {
           height: height / 2,
         }}
       >
-        <Card preview={true} text={cardText} />
+        <Card preview={true} role={role} name={name} />
       </div>
-      <input type='text' onChange={handleChange} />
+      <label>
+        Role
+        <input type='text' onChange={handleChangeRole} />
+      </label>
+      <label>
+        Name
+        <input type='text' onChange={handleChangeName} />
+      </label>
       <button onClick={handleClick}>Download</button>
     </>
   )

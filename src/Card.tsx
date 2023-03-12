@@ -1,25 +1,30 @@
 export function Card({
   preview = false,
-  text,
+  role,
+  name,
 }: {
   preview?: boolean
-  text?: string
+  role?: string
+  name?: string
 }) {
   return (
     <div
       style={{
-        alignItems: 'center',
         backgroundColor: '#f0f0f0',
         backgroundImage: 'url(/background.png)',
         backgroundSize: 'cover',
         display: 'flex',
-        fontSize: preview ? 50 : 100,
+        flexDirection: 'column',
         height: '100%',
+        justifyContent: 'center',
         padding: preview ? '80px 48px' : '160px 96px',
         width: '100%',
       }}
     >
-      <div>{text}</div>
+      <div style={{ fontSize: preview ? 20 : 40 }}>{role}</div>
+      <div style={{ fontSize: preview ? 40 : 80, marginTop: preview ? 10 : 20 }}>
+        {name}
+      </div>
     </div>
   )
 }
