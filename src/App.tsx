@@ -22,10 +22,6 @@ export default function App() {
     setName(() => e.target.value)
   }
 
-  const handleClick = () => {
-    downloadSvgAsPng(svgString)
-  }
-
   useEffect(() => {
     ;(async () => {
       const svg = await satori(<Card role={role} name={name} />, {
@@ -61,7 +57,7 @@ export default function App() {
         Name
         <input type='text' onChange={handleChangeName} />
       </label>
-      <button onClick={handleClick}>Download</button>
+      <button type='button' onClick={() => downloadSvgAsPng(svgString)}>Download</button>
     </>
   )
 }
