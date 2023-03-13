@@ -1,12 +1,4 @@
-export function Card({
-  preview = false,
-  role,
-  name,
-}: {
-  preview?: boolean
-  role?: string
-  name?: string
-}) {
+export function Card({ role, name }: { role?: string; name?: string }) {
   return (
     <div
       style={{
@@ -17,14 +9,12 @@ export function Card({
         flexDirection: 'column',
         height: '100%',
         justifyContent: 'center',
-        padding: preview ? '80px 48px' : '160px 96px',
+        padding: '160px 96px',
         width: '100%',
       }}
     >
-      <div style={{ fontSize: preview ? 20 : 40 }}>{role}</div>
-      <div style={{ fontSize: preview ? 40 : 80, marginTop: preview ? 10 : 20 }}>
-        {name}
-      </div>
+      <div style={{ fontSize: 40 }}>{role}</div>
+      <div style={{ fontSize: 80, marginTop: 20 }}>{name}</div>
     </div>
   )
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import satori from 'satori'
 import { Card } from './Card'
 import { downloadSvgAsPng } from './svg-utils'
@@ -13,6 +13,7 @@ export default function App() {
   const height = 1080
   const [role, setRole] = useState('Human')
   const [name, setName] = useState('John Doe')
+  const [svgString, setSvgString] = useState('')
 
   const handleChangeRole = (e: { target: { value: string } }) => {
     setRole(() => e.target.value)
@@ -21,19 +22,25 @@ export default function App() {
     setName(() => e.target.value)
   }
 
-  const handleClick = async () => {
-    const svg = await satori(<Card role={role} name={name} />, {
-      width: width,
-      height: height,
-      fonts: [
-        {
-          name: 'Noto Sans JP',
-          data: await notoSansJP,
-        },
-      ],
-    })
-    downloadSvgAsPng(svg)
+  const handleClick = () => {
+    downloadSvgAsPng(svgString)
   }
+
+  useEffect(() => {
+    ;(async () => {
+      const svg = await satori(<Card role={role} name={name} />, {
+        width: width,
+        height: height,
+        fonts: [
+          {
+            name: 'Noto Sans JP',
+            data: await notoSansJP,
+          },
+        ],
+      })
+      setSvgString(svg)
+    })()
+  }, [role, name])
 
   return (
     <>
@@ -43,9 +50,9 @@ export default function App() {
           width: width / 2,
           height: height / 2,
         }}
-      >
-        <Card preview={true} role={role} name={name} />
-      </div>
+        className='imageWrapper'
+        dangerouslySetInnerHTML={{ __html: svgString }}
+      />
       <label>
         Role
         <input type='text' onChange={handleChangeRole} />
