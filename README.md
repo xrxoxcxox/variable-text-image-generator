@@ -10,7 +10,7 @@ If you want to change ...
 
 - Background design -> Overwrite `public/background.png`
 - Position and size of text -> Rewrite the style in `src/Card.tsx`
-- Number of variable text -> Rewrite `src/Card.tsx` and `src/App.tsx
+- Number of variable text -> Rewrite `src/Card.tsx` and `src/App.tsx`
 
 ## Reference
 
