@@ -11,20 +11,18 @@ const notoSansJP = fetch('/NotoSansJP-Regular.otf').then((res) =>
 export default function App() {
   const width = 1920
   const height = 1080
-  const [role, setRole] = useState('Human')
-  const [name, setName] = useState('John Doe')
+  const [text, setText] = useState({
+    role: 'Human',
+    name: 'John Doe',
+  })
   const [svgString, setSvgString] = useState('')
-
-  const handleChangeRole = (e: { target: { value: string } }) => {
-    setRole(() => e.target.value)
-  }
-  const handleChangeName = (e: { target: { value: string } }) => {
-    setName(() => e.target.value)
+  const handleChangeText = (event: { target: HTMLInputElement }) => {
+    setText({ ...text, [event.target.name]: event.target.value })
   }
 
   useEffect(() => {
     ;(async () => {
-      const svg = await satori(<Card role={role} name={name} />, {
+      const svg = await satori(<Card role={text.role} name={text.name} />, {
         width: width,
         height: height,
         fonts: [
@@ -36,7 +34,7 @@ export default function App() {
       })
       setSvgString(svg)
     })()
-  }, [role, name])
+  }, [text])
 
   return (
     <>
@@ -51,13 +49,15 @@ export default function App() {
       />
       <label>
         Role
-        <input type='text' onChange={handleChangeRole} />
+        <input type='text' name='role' onChange={handleChangeText} />
       </label>
       <label>
         Name
-        <input type='text' onChange={handleChangeName} />
+        <input type='text' name='name' onChange={handleChangeText} />
       </label>
-      <button type='button' onClick={() => downloadSvgAsPng(svgString)}>Download</button>
+      <button type='button' onClick={() => downloadSvgAsPng(svgString)}>
+        Download
+      </button>
     </>
   )
 }
