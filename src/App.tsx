@@ -1,63 +1,64 @@
-import { useEffect, useState } from 'react'
-import satori from 'satori'
-import { Card } from './Card'
-import { downloadSvgAsPng } from './svg-utils'
-import './style.css'
+import { useEffect, useState } from "react";
+import satori from "satori";
+import { Card } from "./Card";
+import { downloadSvgAsPng } from "./svg-utils";
+import "./style.css";
 
-const notoSansJP = fetch('/NotoSansJP-Regular.otf').then((res) =>
+const notoSans = fetch("/NotoSans-SemiBold.ttf").then((res) =>
   res.arrayBuffer()
-)
+);
 
 export default function App() {
-  const width = 1920
-  const height = 1080
-  const [role, setRole] = useState('Human')
-  const [name, setName] = useState('John Doe')
-  const [svgString, setSvgString] = useState('')
-
-  const handleChangeRole = (e: { target: { value: string } }) => {
-    setRole(() => e.target.value)
-  }
-  const handleChangeName = (e: { target: { value: string } }) => {
-    setName(() => e.target.value)
-  }
+  const width = 1920;
+  const height = 1080;
+  const [text, setText] = useState({
+    role: "Your Role",
+    name: "Your Name",
+  });
+  const [svgString, setSvgString] = useState("");
+  const handleChangeText = (event: { target: HTMLInputElement }) => {
+    setText({ ...text, [event.target.name]: event.target.value });
+  };
 
   useEffect(() => {
-    ;(async () => {
-      const svg = await satori(<Card role={role} name={name} />, {
+    (async () => {
+      const svg = await satori(<Card role={text.role} name={text.name} />, {
         width: width,
         height: height,
         fonts: [
           {
-            name: 'Noto Sans JP',
-            data: await notoSansJP,
+            name: "Noto Sans",
+            data: await notoSans,
           },
         ],
-      })
-      setSvgString(svg)
-    })()
-  }, [role, name])
+      });
+      setSvgString(svg);
+    })();
+  }, [text]);
 
   return (
-    <>
+    <div className="container">
+      <h1 className="title">Background image generator</h1>
       <div
         style={{
           aspectRatio: `${width} / ${height}`,
-          width: width / 2,
-          height: height / 2,
         }}
-        className='imageWrapper'
+        className="imageWrapper"
         dangerouslySetInnerHTML={{ __html: svgString }}
       />
-      <label>
-        Role
-        <input type='text' onChange={handleChangeRole} />
-      </label>
-      <label>
-        Name
-        <input type='text' onChange={handleChangeName} />
-      </label>
-      <button type='button' onClick={() => downloadSvgAsPng(svgString)}>Download</button>
-    </>
-  )
+      <div className="formWrapper">
+        <label className="inputWrapper">
+          Role
+          <input type="text" name="role" onChange={handleChangeText} className="input" />
+        </label>
+        <label className="inputWrapper">
+          Name
+          <input type="text" name="name" onChange={handleChangeText} className="input" />
+        </label>
+        <button type="button" onClick={() => downloadSvgAsPng(svgString)} className="button">
+          Download
+        </button>
+      </div>
+    </div>
+  );
 }
