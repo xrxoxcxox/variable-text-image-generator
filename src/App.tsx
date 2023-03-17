@@ -4,7 +4,7 @@ import { Card } from "./Card";
 import { downloadSvgAsPng } from "./svg-utils";
 import "./style.css";
 
-const notoSansJP = fetch("/NotoSansJP-Regular.otf").then((res) =>
+const notoSans = fetch("/NotoSans-SemiBold.ttf").then((res) =>
   res.arrayBuffer()
 );
 
@@ -12,8 +12,8 @@ export default function App() {
   const width = 1920;
   const height = 1080;
   const [text, setText] = useState({
-    role: "Human",
-    name: "John Doe",
+    role: "Your Role",
+    name: "Your Name",
   });
   const [svgString, setSvgString] = useState("");
   const handleChangeText = (event: { target: HTMLInputElement }) => {
@@ -27,8 +27,8 @@ export default function App() {
         height: height,
         fonts: [
           {
-            name: "Noto Sans JP",
-            data: await notoSansJP,
+            name: "Noto Sans",
+            data: await notoSans,
           },
         ],
       });
@@ -37,27 +37,28 @@ export default function App() {
   }, [text]);
 
   return (
-    <>
+    <div className="container">
+      <h1 className="title">Background image generator</h1>
       <div
         style={{
           aspectRatio: `${width} / ${height}`,
-          width: width / 2,
-          height: height / 2,
         }}
         className="imageWrapper"
         dangerouslySetInnerHTML={{ __html: svgString }}
       />
-      <label>
-        Role
-        <input type="text" name="role" onChange={handleChangeText} />
-      </label>
-      <label>
-        Name
-        <input type="text" name="name" onChange={handleChangeText} />
-      </label>
-      <button type="button" onClick={() => downloadSvgAsPng(svgString)}>
-        Download
-      </button>
-    </>
+      <div className="formWrapper">
+        <label className="inputWrapper">
+          Role
+          <input type="text" name="role" onChange={handleChangeText} className="input" />
+        </label>
+        <label className="inputWrapper">
+          Name
+          <input type="text" name="name" onChange={handleChangeText} className="input" />
+        </label>
+        <button type="button" onClick={() => downloadSvgAsPng(svgString)} className="button">
+          Download
+        </button>
+      </div>
+    </div>
   );
 }
