@@ -3,7 +3,7 @@ export function Card({ role, name }: { role?: string; name?: string }) {
     <div
       style={{
         backgroundColor: "#f0f0f0",
-        backgroundImage: "url(/background.png)",
+        backgroundImage: "url(/background-image-generator/background.png)",
         backgroundSize: "cover",
         display: "flex",
         flexDirection: "column",
