@@ -1,9 +1,11 @@
+import background from '/background.png'
+
 export function Card({ role, name }: { role?: string; name?: string }) {
   return (
     <div
       style={{
         backgroundColor: "#f0f0f0",
-        backgroundImage: "url(/background-image-generator/background.png)",
+        backgroundImage: `url(${background})`,
         backgroundSize: "cover",
         display: "flex",
         flexDirection: "column",

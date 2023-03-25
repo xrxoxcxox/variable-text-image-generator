@@ -4,7 +4,7 @@ import { Card } from "./Card";
 import { downloadSvgAsPng } from "./svg-utils";
 import "./style.css";
 
-const notoSans = fetch("/background-image-generator/NotoSans-SemiBold.ttf").then((res) =>
+const notoSans = fetch("./NotoSans-SemiBold.ttf").then((res) =>
   res.arrayBuffer()
 );
 
