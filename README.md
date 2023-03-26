@@ -2,7 +2,7 @@
 
 You can enter text in your browser and download the generated image.
 
-https://user-images.githubusercontent.com/22670303/227794492-155b326d-7a40-4405-98f8-dc5b7112ca72.mov
+https://user-images.githubusercontent.com/22670303/227798003-87678e0b-2c2b-49fe-aac7-d36e8a8cc8bf.mov
 
 ## How to use
 
