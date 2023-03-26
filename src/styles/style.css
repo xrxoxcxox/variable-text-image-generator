@@ -17,17 +17,50 @@ body {
 .grid {
   display: grid;
   grid-template-columns: 320px 1fr;
+  min-height: 100dvh;
 }
 
 .templates {
-  background-color: #f6f6f6;
+  background-color: #f8f8f8;
+  display: grid;
+  gap: 16px;
+  grid-template-rows: max-content;
+  height: 100dvh;
+  padding: 24px 16px;
+  position: sticky;
+  top: 0;
+}
+
+.title {
+  font-size: 1.5rem;
+}
+
+.navigation-list {
+  list-style: none;
+}
+
+.navigation-link {
+  border-radius: 6px;
+  color: inherit;
+  display: block;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color 100ms ease-in-out;
+}
+
+.navigation-link.-active {
+  background-color: #eaeaea;
+}
+
+.navigation-link:hover {
+  background-color: #e1e1e1;
 }
 
 .container {
   display: grid;
-  gap: 2rem;
+  gap: 32px;
   margin: auto;
-  padding: 2rem;
+  padding: 32px;
   width: min(1080px, 100%);
 }
 
@@ -38,20 +71,20 @@ body {
 
 .formWrapper {
   display: grid;
-  gap: 1rem;
+  gap: 16px;
   width: max(400px, 50%);
 }
 
 .inputWrapper {
   display: grid;
-  gap: 0.25rem;
+  gap: 4px;
 }
 
 .input {
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 20px;
-  padding: 0.5rem 0.75rem;
+  padding: 8px 12px;
 }
 
 .button {
@@ -62,8 +95,8 @@ body {
   cursor: pointer;
   font-size: 1.5rem;
   font-weight: bold;
-  margin-top: 1rem;
-  padding: 1rem 1.5rem;
+  margin-top: 16px;
+  padding: 16px 24px;
   transition: background-color 100ms ease-in-out;
 }
 
