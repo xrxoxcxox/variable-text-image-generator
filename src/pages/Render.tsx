@@ -2,37 +2,38 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import satori from "satori";
 import { routes } from "../routes";
-import { downloadSvgAsPng } from "../svg-utils";
 import { BlankImage } from "../templates/BlankImage";
+import { downloadSvgAsPng } from "../utils/image-processing";
 
 export default function Render() {
+  // Processing for dynamic routing
   const current = useLocation();
   const currentRouteValues = routes.find(
-    (route) => route.path === current.pathname
+    (route) => `/${route.path}` === current.pathname
   );
   const values = currentRouteValues?.values ?? {};
   const Template = currentRouteValues?.template ?? BlankImage;
+
+  // Processing for generating images with satori
   const allValues = routes.reduce((accumulator, route) => {
     return { ...accumulator, ...route.values };
   }, {});
   const [text, setText] = useState({
     ...allValues,
   });
-  const width = 1920;
-  const height = 1080;
-  const notoSans = fetch("./NotoSans-SemiBold.ttf").then((res) =>
-    res.arrayBuffer()
-  );
   const [svgString, setSvgString] = useState("");
   const handleChangeText = (event: { target: HTMLInputElement }) => {
     setText({ ...text, [event.target.name]: event.target.value });
   };
+  const notoSans = fetch("./NotoSans-SemiBold.ttf").then((res) =>
+    res.arrayBuffer()
+  );
 
   useEffect(() => {
     (async () => {
       const svg = await satori(<Template {...text} />, {
-        width: width,
-        height: height,
+        width: 1920,
+        height: 1080,
         fonts: [
           {
             name: "Noto Sans",
@@ -45,17 +46,14 @@ export default function Render() {
   }, [text, Template]);
 
   return (
-    <div className="container">
+    <>
       <div
-        style={{
-          aspectRatio: `${width} / ${height}`,
-        }}
-        className="imageWrapper"
+        className="image"
         dangerouslySetInnerHTML={{ __html: svgString }}
       />
-      <div className="formWrapper">
+      <div className="control">
         {Object.entries(values).map(([key]) => (
-          <label className="inputWrapper" key={key}>
+          <label className="label" key={key}>
             {key}
             <input
               key={key}
@@ -74,6 +72,7 @@ export default function Render() {
           Download
         </button>
       </div>
-    </div>
+    </>
+
   );
 }

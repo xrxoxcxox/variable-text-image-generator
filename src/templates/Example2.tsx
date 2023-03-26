@@ -1,6 +1,6 @@
 import background from "/example-2-background.png";
 
-export function Example2Image({
+export function Example2({
   title,
   subtitle,
 }: {

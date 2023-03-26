@@ -4,8 +4,8 @@ import "../styles/style.css";
 
 export default function Root() {
   return (
-    <div className="grid">
-      <header className="templates">
+    <div className="contaner">
+      <header className="header">
         <h1 className="title">Templates</h1>
         <nav>
           <ul className="navigation-list">
@@ -24,7 +24,7 @@ export default function Root() {
           </ul>
         </nav>
       </header>
-      <main>
+      <main className="main">
         <Outlet />
       </main>
     </div>

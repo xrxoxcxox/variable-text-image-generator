@@ -1,6 +1,6 @@
 import background from "/example-1-background.png";
 
-export function Example1Image({
+export function Example1({
   role,
   name,
 }: {
