@@ -1,6 +1,6 @@
-import background from '/background.png'
+import background from '/example-1-background.png'
 
-export function Card({ role, name }: { role?: string; name?: string }) {
+export function Example1Image({ role, name }: { role?: string; name?: string }) {
   return (
     <div
       style={{

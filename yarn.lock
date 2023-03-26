@@ -184,6 +184,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@remix-run/router@1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.4.0.tgz#74935d538e4df8893e47831a7aea362f295bcd39"
+  integrity sha512-BJ9SxXux8zAg991UmT8slpwpsd31K1dHHbD3Ba4VzD+liLQ4WAMSxQp2d2ZPRPfN0jN2NPRowcSSoM7lCaF08Q==
+
 "@shuding/opentype.js@1.4.0-beta.0":
   version "1.4.0-beta.0"
   resolved "https://registry.yarnpkg.com/@shuding/opentype.js/-/opentype.js-1.4.0-beta.0.tgz#5d1e7e9e056f546aad41df1c5043f8f85d39e24b"
@@ -1569,6 +1574,21 @@ react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-router-dom@^6.9.0:
+  version "6.9.0"
+  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.9.0.tgz#dd8b4e461453bd4cad2e6404493d1a5b4bfea758"
+  integrity sha512-/seUAPY01VAuwkGyVBPCn1OXfVbaWGGu4QN9uj0kCPcTyNYgL1ldZpxZUpRU7BLheKQI4Twtl/OW2nHRF1u26Q==
+  dependencies:
+    "@remix-run/router" "1.4.0"
+    react-router "6.9.0"
+
+react-router@6.9.0:
+  version "6.9.0"
+  resolved "https://registry.yarnpkg.com/react-router/-/react-router-6.9.0.tgz#0f503d9becbc62d9e4ddc0f9bd4026e0fd29fbf5"
+  integrity sha512-51lKevGNUHrt6kLuX3e/ihrXoXCa9ixY/nVWRLlob4r/l0f45x3SzBvYJe3ctleLUQQ5fVa4RGgJOTH7D9Umhw==
+  dependencies:
+    "@remix-run/router" "1.4.0"
 
 react@^18.2.0:
   version "18.2.0"
