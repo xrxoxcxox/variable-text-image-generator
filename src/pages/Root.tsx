@@ -1,8 +1,16 @@
-import { Outlet, NavLink } from "react-router-dom";
+import { useEffect } from "react";
+import { Outlet, NavLink, useNavigate, useLocation } from "react-router-dom";
 import { routes } from "../routes";
 import "../styles/style.css";
 
 export default function Root() {
+  const navigate = useNavigate();
+  const current = useLocation();
+  useEffect(() => {
+    if (current.pathname === "/") {
+      navigate(routes[0].path);
+    }
+  }, []);
   return (
     <div className="contaner">
       <header className="header">

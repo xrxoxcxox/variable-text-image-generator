@@ -16,8 +16,12 @@ const router = createBrowserRouter(
         },
       ],
     },
+    {
+      path: "*",
+      element: <Root />,
+    },
   ],
-  { basename: "/background-image-generator" }
+  { basename: "/dynamic-text-image-generator" }
 );
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

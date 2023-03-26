@@ -1,16 +1,9 @@
 import background from "/example-1-background.png";
 
-export function Example1({
-  role,
-  name,
-}: {
-  role?: string;
-  name?: string;
-}) {
+export function Example1({ role, name }: { role?: string; name?: string }) {
   return (
     <div
       style={{
-        backgroundColor: "#f0f0f0",
         backgroundImage: `url(${background})`,
         backgroundSize: "cover",
         display: "flex",

@@ -1,4 +1,4 @@
-# Background image generator
+# Dynamic text image generator
 
 You can enter text in your browser and download the generated image.
 
