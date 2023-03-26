@@ -2,15 +2,23 @@
 
 You can enter text in your browser and download the generated image.
 
-https://user-images.githubusercontent.com/22670303/224936471-7e773580-e86f-4add-8d65-48669d4de45b.mov
+https://user-images.githubusercontent.com/22670303/227794492-155b326d-7a40-4405-98f8-dc5b7112ca72.mov
 
 ## How to use
 
-If you want to change ...
+### For Developers
 
-- Background design -> Overwrite `public/background.png`
-- Position and size of text -> Rewrite the style in `src/Card.tsx`
-- Number of variable text -> Rewrite `src/Card.tsx` and `src/App.tsx`
+- Clone this repository
+- Run `yarn install` (first time only)
+- Run `yarn dev`.
+- Change the style based on `src/templates/Example1.tsx`.
+- Change `src/routes.ts` if you want to change the path or the text in the image.
+- Change the `settings > Build and deployment > Source` in the repository to GitHub Actions to use it on GitHub Pages.
+
+### For others
+
+- Change `role` and `name` in Example 1
+- Click the `Download` button and you are done.
 
 ## Reference
 
