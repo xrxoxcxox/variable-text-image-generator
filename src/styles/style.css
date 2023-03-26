@@ -14,16 +14,21 @@ body {
   display: contents;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+}
+
+.templates {
+  background-color: #f6f6f6;
+}
+
 .container {
   display: grid;
   gap: 2rem;
   margin: auto;
   padding: 2rem;
   width: min(1080px, 100%);
-}
-
-.title {
-  font-size: 2rem;
 }
 
 .imageWrapper svg {

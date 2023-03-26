@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react";
 import satori from "satori";
-import { Card } from "./Card";
-import { downloadSvgAsPng } from "./svg-utils";
-import "./style.css";
+import { Example2Image } from "../templates/Example2Image";
+import { downloadSvgAsPng } from "../svg-utils";
 
 const notoSans = fetch("./NotoSans-SemiBold.ttf").then((res) =>
   res.arrayBuffer()
 );
 
-export default function App() {
+export default function Example2() {
   const width = 1920;
   const height = 1080;
   const [text, setText] = useState({
-    role: "Your Role",
-    name: "Your Name",
+    title: "Here's an example sentence",
+    subtitle: "Secondary example sentences",
   });
   const [svgString, setSvgString] = useState("");
   const handleChangeText = (event: { target: HTMLInputElement }) => {
@@ -22,7 +21,7 @@ export default function App() {
 
   useEffect(() => {
     (async () => {
-      const svg = await satori(<Card role={text.role} name={text.name} />, {
+      const svg = await satori(<Example2Image title={text.title} subtitle={text.subtitle} />, {
         width: width,
         height: height,
         fonts: [
@@ -38,7 +37,6 @@ export default function App() {
 
   return (
     <div className="container">
-      <h1 className="title">Background image generator</h1>
       <div
         style={{
           aspectRatio: `${width} / ${height}`,
@@ -48,12 +46,12 @@ export default function App() {
       />
       <div className="formWrapper">
         <label className="inputWrapper">
-          Role
-          <input type="text" name="role" onChange={handleChangeText} className="input" />
+          Title
+          <input type="text" name="title" onChange={handleChangeText} className="input" />
         </label>
         <label className="inputWrapper">
-          Name
-          <input type="text" name="name" onChange={handleChangeText} className="input" />
+          Subtitle
+          <input type="text" name="subtitle" onChange={handleChangeText} className="input" />
         </label>
         <button type="button" onClick={() => downloadSvgAsPng(svgString)} className="button">
           Download
