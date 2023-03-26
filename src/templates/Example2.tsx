@@ -11,7 +11,6 @@ export function Example2({
     <div
       style={{
         alignItems: "center",
-        backgroundColor: "#f0f0f0",
         backgroundImage: `url(${background})`,
         backgroundSize: "cover",
         color: "#fff",

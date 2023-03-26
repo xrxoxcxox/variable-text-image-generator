@@ -28,12 +28,14 @@ export default function Render() {
   const notoSans = fetch("./NotoSans-SemiBold.ttf").then((res) =>
     res.arrayBuffer()
   );
+  const imageWidth = 1920;
+  const imageHeight = 1080;
 
   useEffect(() => {
     (async () => {
       const svg = await satori(<Template {...text} />, {
-        width: 1920,
-        height: 1080,
+        width: imageWidth,
+        height: imageHeight,
         fonts: [
           {
             name: "Noto Sans",
@@ -48,6 +50,9 @@ export default function Render() {
   return (
     <>
       <div
+        style={{
+          aspectRatio: `${imageWidth} / ${imageHeight}`,
+        }}
         className="image"
         dangerouslySetInnerHTML={{ __html: svgString }}
       />
@@ -73,6 +78,5 @@ export default function Render() {
         </button>
       </div>
     </>
-
   );
 }

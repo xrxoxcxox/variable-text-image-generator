@@ -65,6 +65,10 @@ body {
   width: min(1080px, 100%);
 }
 
+.image {
+  background-color: #ddd;
+}
+
 .image svg {
   display: block;
   width: 100%;
