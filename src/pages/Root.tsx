@@ -1,10 +1,7 @@
-import { useEffect } from "react";
-import { Outlet, NavLink, useLocation } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import "../styles/style.css";
 
 export default function Root() {
-  const location = useLocation();
-  useEffect(() => console.log(location.pathname), [location]);
   return (
     <div className="grid">
       <header className="templates">
