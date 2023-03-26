@@ -1,40 +1,30 @@
-import { useEffect } from "react";
-import { Outlet, NavLink, useLocation } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
+import { routes } from "../routes";
 import "../styles/style.css";
 
 export default function Root() {
-  const location = useLocation();
-  useEffect(() => console.log(location.pathname), [location]);
   return (
-    <div className="grid">
-      <header className="templates">
+    <div className="contaner">
+      <header className="header">
         <h1 className="title">Templates</h1>
         <nav>
           <ul className="navigation-list">
-            <li>
-              <NavLink
-                to={`example1`}
-                className={({ isActive }) =>
-                  isActive ? "navigation-link -active" : "navigation-link"
-                }
-              >
-                Example 1
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to={`example2`}
-                className={({ isActive }) =>
-                  isActive ? "navigation-link -active" : "navigation-link"
-                }
-              >
-                Example 2
-              </NavLink>
-            </li>
+            {routes.map((route) => (
+              <li key={route.path}>
+                <NavLink
+                  to={route.path}
+                  className={({ isActive }) =>
+                    isActive ? "navigation-link -active" : "navigation-link"
+                  }
+                >
+                  {route.path}
+                </NavLink>
+              </li>
+            ))}
           </ul>
         </nav>
       </header>
-      <main>
+      <main className="main">
         <Outlet />
       </main>
     </div>

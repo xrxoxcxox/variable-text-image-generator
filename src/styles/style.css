@@ -14,17 +14,17 @@ body {
   display: contents;
 }
 
-.grid {
+.contaner {
   display: grid;
   grid-template-columns: 320px 1fr;
   min-height: 100dvh;
 }
 
-.templates {
+.header {
+  align-content: start;
   background-color: #f8f8f8;
   display: grid;
   gap: 16px;
-  grid-template-rows: max-content;
   height: 100dvh;
   padding: 24px 16px;
   position: sticky;
@@ -56,26 +56,28 @@ body {
   background-color: #e1e1e1;
 }
 
-.container {
+.main {
+  align-content: start;
   display: grid;
   gap: 32px;
-  margin: auto;
+  justify-self: center;
   padding: 32px;
   width: min(1080px, 100%);
 }
 
-.imageWrapper svg {
+.image svg {
+  display: block;
   width: 100%;
   height: auto;
 }
 
-.formWrapper {
+.control {
   display: grid;
   gap: 16px;
-  width: max(400px, 50%);
+  width: clamp(50%, 400px, 100%);
 }
 
-.inputWrapper {
+.label {
   display: grid;
   gap: 4px;
 }

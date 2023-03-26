@@ -1,6 +1,12 @@
-import background from '/example-2-background.png'
+import background from "/example-2-background.png";
 
-export function Example2Image({ title, subtitle }: { title?: string; subtitle?: string }) {
+export function Example2({
+  title,
+  subtitle,
+}: {
+  title?: string;
+  subtitle?: string;
+}) {
   return (
     <div
       style={{
@@ -17,7 +23,9 @@ export function Example2Image({ title, subtitle }: { title?: string; subtitle?: 
         width: "100%",
       }}
     >
-      <div style={{ fontSize: 160, lineHeight: 1, textAlign: "center" }}>{title}</div>
+      <div style={{ fontSize: 160, lineHeight: 1, textAlign: "center" }}>
+        {title}
+      </div>
       <div style={{ fontSize: 40, marginTop: 120 }}>{subtitle}</div>
     </div>
   );
