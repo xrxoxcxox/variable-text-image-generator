@@ -1,17 +1,9 @@
-import background from "/example-1-background.png";
-
-export function Example1Image({
-  role,
-  name,
-}: {
-  role?: string;
-  name?: string;
-}) {
+export function BlankImage() {
   return (
     <div
       style={{
+        alignItems: "center",
         backgroundColor: "#f0f0f0",
-        backgroundImage: `url(${background})`,
         backgroundSize: "cover",
         display: "flex",
         flexDirection: "column",
@@ -21,8 +13,7 @@ export function Example1Image({
         width: "100%",
       }}
     >
-      <div style={{ fontSize: 40 }}>{role}</div>
-      <div style={{ fontSize: 80, marginTop: 20 }}>{name}</div>
+      <div style={{ fontSize: 100 }}>Blank</div>
     </div>
   );
 }

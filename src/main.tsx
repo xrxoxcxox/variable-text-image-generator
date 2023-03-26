@@ -1,9 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Render from "./pages/Render";
 import Root from "./pages/Root";
-import Example1 from "./pages/Example1";
-import Example2 from "./pages/Example2";
 
 const router = createBrowserRouter(
   [
@@ -12,12 +11,8 @@ const router = createBrowserRouter(
       element: <Root />,
       children: [
         {
-          path: "example1",
-          element: <Example1 />,
-        },
-        {
-          path: "example2",
-          element: <Example2 />,
+          path: ":template",
+          element: <Render />,
         },
       ],
     },
