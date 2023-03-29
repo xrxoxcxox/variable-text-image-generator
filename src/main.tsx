@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Render from "./pages/Render";
 import Root from "./pages/Root";
+import packageJson from "../package.json"
 
 const router = createBrowserRouter(
   [
@@ -17,7 +18,7 @@ const router = createBrowserRouter(
       ],
     },
   ],
-  { basename: "/dynamic-text-image-generator" }
+  { basename: `/${packageJson.name}` }
 );
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
