@@ -69,13 +69,15 @@ export default function Render() {
             />
           </label>
         ))}
-        <button
-          type="button"
-          onClick={() => downloadSvgAsPng(svgString)}
-          className="button"
-        >
-          Download
-        </button>
+        {currentRouteValues?.template ? (
+          <button
+            type="button"
+            onClick={() => downloadSvgAsPng(svgString)}
+            className="button"
+          >
+            Download
+          </button>
+        ) : null}
       </div>
     </>
   );

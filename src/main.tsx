@@ -16,10 +16,6 @@ const router = createBrowserRouter(
         },
       ],
     },
-    {
-      path: "*",
-      element: <Root />,
-    },
   ],
   { basename: "/dynamic-text-image-generator" }
 );
