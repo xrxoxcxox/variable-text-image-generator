@@ -1,4 +1,4 @@
-# Dynamic text image generator
+# Variable text image generator
 
 You can enter text in your browser and download the generated image.
 
@@ -8,17 +8,18 @@ https://user-images.githubusercontent.com/22670303/227798003-87678e0b-2c2b-49fe-
 
 ### For Developers
 
-- Clone this repository
-- Run `yarn install` (first time only)
+- Clone this repository.
+  - If you want to change the repository name, change the name field in package.json as well.
 - Run `yarn dev`.
-- Change the style based on `src/templates/Example1.tsx`.
+- Change styles by referring to `src/templates/Example1.tsx` or `src/templates/Example2.tsx
 - Change `src/routes.ts` if you want to change the path or the text in the image.
-- Change the `settings > Build and deployment > Source` in the repository to GitHub Actions to use it on GitHub Pages.
+- Change the `settings > Build and deployment > Source` in the repository to `GitHub Actions` to use it on GitHub Pages.
+- You can then use it on GitHub Pages every time you push to your main branch.
 
-### For others
+### For people who download images
 
-- Change `role` and `name` in Example 1
-- Click the `Download` button and you are done.
+- Enter suitable text in the text field.
+- Click the `Download` button.
 
 ## Reference
 
